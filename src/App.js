@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import Customiser from './components/Customiser';
+import Summary from './components/Summary';
+import Price from './components/Price';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <div className="header__content">
+          <a className="header__link" href="https://www.apple.com/in/macbook-pro">
+            <strong>MacBook Pro</strong>
+          </a>
+        </div>
       </header>
-    </div>
+      <main>
+        <div className="main__content">
+          <img className="macbook-img" alt="macbook pro" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16touch-space-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825197207" />
+          <div>
+            <Summary />
+            <Customiser />
+          </div>
+        </div>
+        <Price />
+      </main>
+    </>
   );
 }
 

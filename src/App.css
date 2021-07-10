@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
+@import-normalize;
+
+header {
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header__content {
+  margin: 0 auto;
+  width: 980px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header__link {
+  font-size: 24px;
+  text-decoration: none;
+  color: #111;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main__content {
+  margin: 120px auto 0;
+  width: 980px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.macbook-img {
+  width: 410px;
+  height: auto;
 }
