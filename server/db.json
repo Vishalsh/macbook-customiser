@@ -1,0 +1,72 @@
+{
+  "components": {
+    "processor": [
+      {
+        "serialNo": "a",
+        "variant": "2.3GHz 8-core 9th-generation Intel Core processor, Turbo Boost up to 4.8GHz",
+        "addOnPrice": 0
+      },
+      {
+        "serialNo": "b",
+        "variant": "2.4GHz 8-core 9th-generation Intel Core processor, Turbo Boost up to 5.0GHz",
+        "addOnPrice": 20000
+      }
+    ],
+    "memory": [
+      {
+        "serialNo": "a",
+        "variant": "16GB 2666MHz DDR4 memory",
+        "addOnPrice": 0
+      },
+      {
+        "serialNo": "b",
+        "variant": "32GB 2666MHz DDR4 memory",
+        "addOnPrice": 40000
+      },
+      {
+        "serialNo": "c",
+        "variant": "64GB 2666MHz DDR4 memory",
+        "addOnPrice": 80000
+      }
+    ],
+    "graphics": [
+      {
+        "serialNo": "a",
+        "variant": "AMD Radeon Pro 5500M with 4GB of GDDR6 memory",
+        "addOnPrice": 0
+      },
+      {
+        "serialNo": "b",
+        "variant": "AMD Radeon Pro 5500M with 8GB of GDDR6 memory",
+        "addOnPrice": 10000
+      },
+      {
+        "serialNo": "c",
+        "variant": "AMD Radeon Pro 5600M with 8GB of HBM2 memory",
+        "addOnPrice": 70000
+      }
+    ],
+    "storage": [
+      {
+        "serialNo": "a",
+        "variant": "1TB SSD storage",
+        "addOnPrice": 0
+      },
+      {
+        "serialNo": "b",
+        "variant": "2TB SSD storage",
+        "addOnPrice": 40000
+      },
+      {
+        "serialNo": "c",
+        "variant": "4TB SSD storage",
+        "addOnPrice": 100000
+      },
+      {
+        "serialNo": "d",
+        "variant": "8TB SSD storage",
+        "addOnPrice": 220000
+      }
+    ]
+  }
+}
