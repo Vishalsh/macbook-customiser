@@ -26,7 +26,11 @@ export const Component = ({ name, variants, onSelectVariant }) => {
       <h3>{name}</h3>
       {
         variants.map((v) => (
-          <div key={`${name}_${v.serialNo}`} className={`variant ${v.selected ? "variant--selected" : ""}`} onClick={onSelect(v.serialNo)}>
+          <div
+            key={`${name}_${v.serialNo}`}
+            className={`variant ${v.selected ? "variant--selected" : ""}`}
+            data-testid={`${name}_${v.serialNo}`}
+            onClick={onSelect(v.serialNo)}>
             <Variant variant={v.variant} addOnPrice={v.addOnPrice} />
           </div>
         ))
