@@ -1,8 +1,6 @@
 import React from "react";
 import { getDefaultPrice } from "../../service";
 
-import './index.css';
-
 const initialState = {
   loading: false,
   price: 0,

@@ -1,7 +1,5 @@
 import React from "react";
 
-import './index.css';
-
 const Variant = ({ variant, addOnPrice }) => {
   return (
     <>
@@ -22,8 +20,8 @@ export const Component = ({ name, variants, onSelectVariant }) => {
   }
 
   return (
-    <div>
-      <h3>{name}</h3>
+    <div className="component">
+      <h3 className="component__name">{name}</h3>
       <ul>
         {
           variants.map((v) => (
@@ -40,3 +38,24 @@ export const Component = ({ name, variants, onSelectVariant }) => {
     </div>
   )
 }
+
+const Customiser = ({ configurableComponents, onSelectVariant }) => {
+  return (
+    <>
+      {
+        Object.keys(configurableComponents).map((component) => {
+          return (
+            <Component
+              key={component}
+              name={component}
+              variants={configurableComponents[component]}
+              onSelectVariant={onSelectVariant}
+            />
+          )
+        })
+      }
+    </>
+  )
+}
+
+export default Customiser;

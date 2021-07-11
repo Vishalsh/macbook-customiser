@@ -1,7 +1,5 @@
 import React from "react";
 
-import './index.css';
-
 const Summary = ({ configurableComponents }) => {
   return (
     <ul className="summary-list">

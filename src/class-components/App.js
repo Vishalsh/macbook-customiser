@@ -4,8 +4,7 @@ import Customiser from './components/Customiser';
 import Summary from './components/Summary';
 import Price from './components/Price';
 
-import { getCustomisableComponents } from './service';
-import './App.css';
+import { getCustomisableComponents } from '../service';
 
 const initialState = {
   loading: false,

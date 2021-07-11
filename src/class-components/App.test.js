@@ -1,6 +1,6 @@
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import App from './App';
-import data from '../server/db.json'
+import data from '../../server/db.json'
 
 beforeEach(() => {
   jest.spyOn(global, 'fetch')

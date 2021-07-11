@@ -11,3 +11,113 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+header {
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  padding: 15px;
+}
+
+.header__content {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.header__link {
+  font-size: 24px;
+  text-decoration: none;
+  color: #111;
+}
+
+.main__container {
+  height: calc(100vh - 145px);
+  overflow: scroll;
+}
+
+.main__content {
+  margin: 50px auto;
+  width: 980px;
+  display: flex;
+}
+
+.macbook-img {
+  width: 410px;
+  height: auto;
+  position: fixed;
+}
+
+.configuration {
+  margin-left: 450px;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-list {
+  border-bottom: 3px solid #d6d6d6;
+  padding-bottom: 25px;
+  margin-bottom: 35px;
+}
+
+.summary-list li {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.price.container {
+  background-color: #f8f8f8;
+  border-top: 1px solid #d6d6d6;
+  overflow: hidden;
+}
+
+.price__content {
+  width: 980px;
+  margin: 0px auto;
+}
+
+.price__value {
+  float: right;
+}
+
+.variant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  height: 90px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.variant:hover {
+  border-color: gray;
+}
+
+.variant__name {
+  width: 60%;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #333;
+}
+
+.variant--selected {
+  border: 3px solid #0070c9;
+}
+
+.variant--selected:hover {
+  border: 3px solid #0070c9;
+}
+
+.component__name {
+  margin-top: 35px;
+}
