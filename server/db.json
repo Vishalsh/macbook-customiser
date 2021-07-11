@@ -1,71 +1,86 @@
 {
+  "price": {
+    "value": 239900
+  },
   "components": {
-    "processor": [
+    "Processor": [
       {
         "serialNo": "a",
         "variant": "2.3GHz 8-core 9th-generation Intel Core processor, Turbo Boost up to 4.8GHz",
-        "addOnPrice": 0
+        "addOnPrice": 0,
+        "default": true
       },
       {
         "serialNo": "b",
         "variant": "2.4GHz 8-core 9th-generation Intel Core processor, Turbo Boost up to 5.0GHz",
-        "addOnPrice": 20000
+        "addOnPrice": 20000,
+        "default": false
       }
     ],
-    "memory": [
+    "Memory": [
       {
         "serialNo": "a",
         "variant": "16GB 2666MHz DDR4 memory",
-        "addOnPrice": 0
+        "addOnPrice": 0,
+        "default": true
       },
       {
         "serialNo": "b",
         "variant": "32GB 2666MHz DDR4 memory",
-        "addOnPrice": 40000
+        "addOnPrice": 40000,
+        "default": false
       },
       {
         "serialNo": "c",
         "variant": "64GB 2666MHz DDR4 memory",
-        "addOnPrice": 80000
+        "addOnPrice": 80000,
+        "default": false
       }
     ],
-    "graphics": [
+    "Graphics": [
       {
         "serialNo": "a",
         "variant": "AMD Radeon Pro 5500M with 4GB of GDDR6 memory",
-        "addOnPrice": 0
+        "addOnPrice": 0,
+        "default": true
       },
       {
         "serialNo": "b",
         "variant": "AMD Radeon Pro 5500M with 8GB of GDDR6 memory",
-        "addOnPrice": 10000
+        "addOnPrice": 10000,
+        "default": false
       },
       {
         "serialNo": "c",
         "variant": "AMD Radeon Pro 5600M with 8GB of HBM2 memory",
-        "addOnPrice": 70000
+        "addOnPrice": 70000,
+        "default": false
       }
     ],
-    "storage": [
+    "Storage": [
       {
         "serialNo": "a",
         "variant": "1TB SSD storage",
-        "addOnPrice": 0
+        "addOnPrice": 0,
+        "default": true
       },
       {
         "serialNo": "b",
         "variant": "2TB SSD storage",
-        "addOnPrice": 40000
+        "addOnPrice": 40000,
+        "default": false
       },
       {
         "serialNo": "c",
         "variant": "4TB SSD storage",
-        "addOnPrice": 100000
+        "addOnPrice": 100000,
+        "default": false
       },
       {
         "serialNo": "d",
         "variant": "8TB SSD storage",
-        "addOnPrice": 220000
+        "addOnPrice": 220000,
+        "default": false
       }
     ]
   }
