@@ -5,12 +5,15 @@ import './index.css';
 
 const initialState = {
   loading: false,
-  price: null,
+  price: 0,
   error: null
 }
 
 class Price extends React.Component {
-  state = initialState;
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
 
   componentDidMount() {
     this.setState({ loading: true });
@@ -28,6 +31,7 @@ class Price extends React.Component {
 
   render() {
     const { loading, price } = this.state;
+    const { addOnPrice } = this.props;
 
     return (
       <div className="price container">
@@ -38,7 +42,7 @@ class Price extends React.Component {
               loading ?
                 <>...loading</>
                 :
-                <span data-testid="total-price">{` ₹${price}`}</span>
+                <span data-testid="total-price">{` ₹${price + addOnPrice}`}</span>
             }
           </h1>
         </div>

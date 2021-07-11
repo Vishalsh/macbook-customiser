@@ -30,6 +30,28 @@ class App extends React.Component {
       })
   }
 
+  setSelectedVariant = (component, variantSerialNo) => {
+    this.setState({
+      configurableComponents: {
+        ...this.state.configurableComponents,
+        [component]: this.state.configurableComponents[component].map(variant => {
+          return {
+            ...variant,
+            selected: variant.serialNo === variantSerialNo
+          }
+        })
+      }
+    });
+  }
+
+  getAddOnPrice = () => {
+    const { configurableComponents } = this.state;
+
+    return Object.keys(configurableComponents).reduce((totalAddOnPrice, component) => {
+      return totalAddOnPrice + configurableComponents[component].find(variant => variant.selected).addOnPrice
+    }, 0);
+  }
+
   render() {
     const { loading, configurableComponents } = this.state;
 
@@ -54,12 +76,12 @@ class App extends React.Component {
                   :
                   <>
                     <Summary configurableComponents={configurableComponents} />
-                    <Customiser configurableComponents={configurableComponents} />
+                    <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
                   </>
               }
             </div>
           </div>
-          <Price />
+          <Price addOnPrice={this.getAddOnPrice()} />
         </main>
       </>
     );
