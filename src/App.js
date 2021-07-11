@@ -65,20 +65,23 @@ class App extends React.Component {
           </div>
         </header>
         <main>
-          <div className="main__content">
-            <div>
-              <img className="macbook-img" alt="macbook pro" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16touch-space-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825197207" />
-            </div>
-            <div>
-              {
-                loading ?
-                  <h1>loading...</h1>
-                  :
-                  <>
-                    <Summary configurableComponents={configurableComponents} />
-                    <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
-                  </>
-              }
+          <div className="main__container">
+            <div className="main__content">
+              <section>
+                <img className="macbook-img" alt="macbook pro" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16touch-space-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825197207" />
+              </section>
+              <section className="configuration">
+                {
+                  loading ?
+                    <h1>loading...</h1>
+                    :
+                    <>
+                      <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
+                      <Summary configurableComponents={configurableComponents} />
+                      <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
+                    </>
+                }
+              </section>
             </div>
           </div>
           <Price addOnPrice={this.getAddOnPrice()} />

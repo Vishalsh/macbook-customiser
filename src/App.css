@@ -2,9 +2,6 @@ header {
   background-color: white;
   border-bottom: 1px solid lightgray;
   padding: 15px;
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
 
 .header__content {
@@ -18,8 +15,13 @@ header {
   color: #111;
 }
 
+.main__container {
+  height: calc(100vh - 145px);
+  overflow: scroll;
+}
+
 .main__content {
-  margin: 120px auto;
+  margin: 50px auto;
   width: 980px;
   display: flex;
 }
@@ -27,4 +29,19 @@ header {
 .macbook-img {
   width: 410px;
   height: auto;
+  position: fixed;
+}
+
+.configuration {
+  margin-left: 450px;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

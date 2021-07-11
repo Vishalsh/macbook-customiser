@@ -8,6 +8,11 @@
   margin-bottom: 15px;
   height: 90px;
   cursor: pointer;
+  box-sizing: border-box;
+}
+
+.variant:hover {
+  border-color: gray;
 }
 
 .variant__name {
@@ -18,5 +23,9 @@
 }
 
 .variant--selected {
+  border: 3px solid #0070c9;
+}
+
+.variant--selected:hover {
   border: 3px solid #0070c9;
 }

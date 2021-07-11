@@ -1,9 +1,7 @@
 .price.container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background-color: #f8f8f8;
   border-top: 1px solid #d6d6d6;
+  overflow: hidden;
 }
 
 .price__content {

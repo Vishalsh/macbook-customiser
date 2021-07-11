@@ -40,7 +40,7 @@ class Price extends React.Component {
             Total:
             {
               loading ?
-                <>...loading</>
+                <>{` loading...`}</>
                 :
                 <span data-testid="total-price">{` ₹${price + addOnPrice}`}</span>
             }

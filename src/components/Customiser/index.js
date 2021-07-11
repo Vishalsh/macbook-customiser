@@ -6,7 +6,7 @@ const Customiser = ({ configurableComponents, onSelectVariant }) => {
     <>
       {
         Object.keys(configurableComponents).map((component) => {
-          return (
+          return (            
             <Component
               key={component}
               name={component}

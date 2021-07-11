@@ -24,17 +24,19 @@ export const Component = ({ name, variants, onSelectVariant }) => {
   return (
     <div>
       <h3>{name}</h3>
-      {
-        variants.map((v) => (
-          <div
-            key={`${name}_${v.serialNo}`}
-            className={`variant ${v.selected ? "variant--selected" : ""}`}
-            data-testid={`${name}_${v.serialNo}`}
-            onClick={onSelect(v.serialNo)}>
-            <Variant variant={v.variant} addOnPrice={v.addOnPrice} />
-          </div>
-        ))
-      }
+      <ul>
+        {
+          variants.map((v) => (
+            <li
+              key={`${name}_${v.serialNo}`}
+              className={`variant ${v.selected ? "variant--selected" : ""}`}
+              data-testid={`${name}_${v.serialNo}`}
+              onClick={onSelect(v.serialNo)}>
+              <Variant variant={v.variant} addOnPrice={v.addOnPrice} />
+            </li>
+          ))
+        }
+      </ul>
     </div>
   )
 }
