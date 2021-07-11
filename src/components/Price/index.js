@@ -38,7 +38,7 @@ class Price extends React.Component {
               loading ?
                 <>...loading</>
                 :
-                <>{` ₹${price}`}</>
+                <span data-testid="total-price">{` ₹${price}`}</span>
             }
           </h1>
         </div>

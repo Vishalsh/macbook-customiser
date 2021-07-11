@@ -6,7 +6,7 @@ export const getDefaultPrice = async () => {
     return response.json();
   }
   catch {
-    return new Error('could not fetch the default configuration');
+    return new Error('could not fetch the default price');
   }
 }
 
