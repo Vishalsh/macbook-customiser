@@ -2,11 +2,11 @@ const DOMAIN = 'http://localhost:3004';
 
 export const getDefaultPrice = async () => {
   try {
-    const response = await fetch(`${DOMAIN}/price`)
+    const response = await fetch(`${DOMAIN}/price`);
     return response.json();
   }
   catch {
-    return new Error('could not fetch the default price');
+    throw new Error('could not fetch the default price');
   }
 }
 
@@ -25,6 +25,6 @@ export const getCustomisableComponents = () => {
       }, {})
     })
     .catch(() => {
-      new Error('could not fetch the customisable components');
+      throw new Error('could not fetch the customisable components');
     });
 }

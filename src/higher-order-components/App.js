@@ -4,6 +4,7 @@ import Customiser from './components/Customiser';
 import Summary from './components/Summary';
 import Price from './components/Price';
 import withApiCallOnMount from './components/withApiCallOnMount';
+import ApiStateHandler from './components/ApiStateHandler';
 
 import { getCustomisableComponents } from '../service';
 
@@ -42,7 +43,7 @@ class App extends React.Component {
 
   render() {
     const { configurableComponents } = this.state;
-    const { loading } = this.props;
+    const { loading, error } = this.props;
 
     return (
       <>
@@ -60,16 +61,11 @@ class App extends React.Component {
                 <img className="macbook-img" alt="macbook pro" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16touch-space-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825197207" />
               </section>
               <section className="configuration">
-                {
-                  loading ?
-                    <h1>loading...</h1>
-                    :
-                    <>
-                      <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
-                      <Summary configurableComponents={configurableComponents} />
-                      <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
-                    </>
-                }
+                <ApiStateHandler loading={loading} error={error}>
+                  <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
+                  <Summary configurableComponents={configurableComponents} />
+                  <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
+                </ApiStateHandler>
               </section>
             </div>
           </div>

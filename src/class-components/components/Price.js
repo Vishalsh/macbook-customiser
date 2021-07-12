@@ -20,7 +20,7 @@ class Price extends React.Component {
         this.setState({ price: data.value })
       })
       .catch((error) => {
-        this.setState(error)
+        this.setState({ error })
       })
       .finally(() => {
         this.setState({ loading: false });

@@ -22,7 +22,7 @@ class App extends React.Component {
         this.setState({ configurableComponents: data })
       })
       .catch((error) => {
-        this.setState(error)
+        this.setState({ error })
       })
       .finally(() => {
         this.setState({ loading: false });

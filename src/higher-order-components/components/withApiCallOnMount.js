@@ -29,7 +29,7 @@ const withApiCallOnMount = (Component, service) => {
       const { loading, data, error } = this.state;
 
       return (
-        <Component {...this.props} loading={loading} data={data} erro={error} />
+        <Component {...this.props} loading={loading} data={data} error={error} />
       )
     }
   }
