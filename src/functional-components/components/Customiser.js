@@ -1,22 +1,18 @@
 import React from "react";
 
-class Variant extends React.PureComponent {
-  render() {
-    const { variant, addOnPrice } = this.props;
-
-    return (
-      <>
-        <p className="variant__name">
-          <strong>{variant}</strong>
-        </p>
-        {
-          addOnPrice > 0 &&
-          <p>+ ₹{addOnPrice}</p>
-        }
-      </>
-    )
-  }
-}
+const Variant = React.memo(({ variant, addOnPrice }) => {
+  return (
+    <>
+      <p className="variant__name">
+        <strong>{variant}</strong>
+      </p>
+      {
+        addOnPrice > 0 &&
+        <p>+ ₹{addOnPrice}</p>
+      }
+    </>
+  )
+})
 
 export const Component = ({ name, variants, onSelectVariant }) => {
   const onSelect = (serialNo) => () => {
