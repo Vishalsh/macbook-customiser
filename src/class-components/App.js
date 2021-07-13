@@ -52,7 +52,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loading, configurableComponents } = this.state;
+    const { loading, configurableComponents, error } = this.state;
 
     return (
       <>
@@ -74,11 +74,14 @@ class App extends React.Component {
                   loading ?
                     <h1>loading...</h1>
                     :
-                    <>
-                      <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
-                      <Summary configurableComponents={configurableComponents} />
-                      <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
-                    </>
+                    error ?
+                      <h1>Something went wrong. Please try again later</h1>
+                      :
+                      <>
+                        <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
+                        <Summary configurableComponents={configurableComponents} />
+                        <Customiser configurableComponents={configurableComponents} onSelectVariant={this.setSelectedVariant} />
+                      </>
                 }
               </section>
             </div>

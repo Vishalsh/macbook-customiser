@@ -28,7 +28,7 @@ class Price extends React.Component {
   }
 
   render() {
-    const { loading, price } = this.state;
+    const { loading, price, error } = this.state;
     const { addOnPrice } = this.props;
 
     return (
@@ -40,7 +40,10 @@ class Price extends React.Component {
               loading ?
                 <>{` loading...`}</>
                 :
-                <span data-testid="total-price">{` ₹${price + addOnPrice}`}</span>
+                error ?
+                  'Something went wrong. Please try again later'
+                  :
+                  <span data-testid="total-price">{` ₹${price + addOnPrice}`}</span>
             }
           </h1>
         </div>
