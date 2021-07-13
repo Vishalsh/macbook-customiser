@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import Customiser from './components/Customiser';
 import Summary from './components/Summary';
@@ -29,11 +29,11 @@ const App = () => {
     });
   }
 
-  const getAddOnPrice = () => {
+  const getAddOnPrice = useMemo(() => {
     return Object.keys(configurableComponents).reduce((totalAddOnPrice, component) => {
       return totalAddOnPrice + configurableComponents[component].find(variant => variant.selected).addOnPrice
     }, 0);
-  }
+  }, [configurableComponents]);
 
   return (
     <>
@@ -59,7 +59,7 @@ const App = () => {
             </section>
           </div>
         </div>
-        <Price addOnPrice={getAddOnPrice()} />
+        <Price addOnPrice={getAddOnPrice} />
       </main>
     </>
   );
