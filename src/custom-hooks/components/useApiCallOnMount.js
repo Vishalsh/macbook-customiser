@@ -1,25 +1,39 @@
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
+
+const initialState = {
+  loading: false,
+  data: null,
+  error: null
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'loading':
+      return { ...initialState, loading: true };
+    case 'success':
+      return { ...initialState, data: action.data };
+    case 'error':
+      return { ...initialState, error: action.error };
+    default:
+      throw new Error();
+  }
+}
 
 const useApiCallOnMount = (service) => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    setLoading(true);
+    dispatch({ type: 'loading' });
     service()
       .then((data) => {
-        setData(data);
+        dispatch({ type: 'success', data });
       })
       .catch((error) => {
-        setError(error);
-      })
-      .finally(() => {
-        setLoading(false);
+        dispatch({ type: 'success', error });
       })
   }, [service]);
 
-  return [loading, data, error];
+  return [state.loading, state.data, state.error];
 };
 
 export default useApiCallOnMount;
