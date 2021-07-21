@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ConfigurableComponentsContext } from './ConfigurableComponentsContext';
 
-const Summary = ({ configurableComponents }) => {
+const Summary = () => {
+  const { configurableComponents } = useContext(ConfigurableComponentsContext);
+
   return (
     <ul className="summary-list">
       {

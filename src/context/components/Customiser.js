@@ -50,7 +50,9 @@ export const Component = ({ name, variants }) => {
   )
 }
 
-const Customiser = ({ configurableComponents }) => {
+const Customiser = () => {
+  const { configurableComponents } = useContext(ConfigurableComponentsContext);
+
   return (
     <>
       {

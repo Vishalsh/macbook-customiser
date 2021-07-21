@@ -8,13 +8,7 @@ import { getCustomisableComponents } from '../service';
 import { ConfigurableComponentsContext } from './components/ConfigurableComponentsContext';
 
 const MainContent = () => {
-  const { configurableComponents, loading, error } = useContext(ConfigurableComponentsContext);
-
-  const getAddOnPrice = useMemo(() => {
-    return Object.keys(configurableComponents).reduce((totalAddOnPrice, component) => {
-      return totalAddOnPrice + configurableComponents[component].find(variant => variant.selected).addOnPrice
-    }, 0);
-  }, [configurableComponents]);
+  const { loading, error } = useContext(ConfigurableComponentsContext);
 
   return (
     <main>
@@ -26,13 +20,13 @@ const MainContent = () => {
           <section className="configuration">
             <ApiStateHandler loading={loading} error={error}>
               <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
-              <Summary configurableComponents={configurableComponents} />
-              <Customiser configurableComponents={configurableComponents} />
+              <Summary />
+              <Customiser />
             </ApiStateHandler>
           </section>
         </div>
       </div>
-      <Price addOnPrice={getAddOnPrice} />
+      <Price />
     </main>
   );
 }
