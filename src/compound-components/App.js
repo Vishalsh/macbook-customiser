@@ -11,28 +11,25 @@ const MainContent = () => {
   const { loading, error } = useContext(ConfigurableComponentsContext);
 
   return (
-    <main>
-      <div className="main__container">
-        <div className="main__content">
-          <section>
-            <img className="macbook-img" alt="macbook pro" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16touch-space-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825197207" />
-          </section>
-          <section className="configuration">
-            <ApiStateHandler loading={loading} error={error}>
-              <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
-              <Summary />
-              <Customiser />
-            </ApiStateHandler>
-          </section>
-        </div>
+    <div className="main__container">
+      <div className="main__content">
+        <section>
+          <img className="macbook-img" alt="macbook pro" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16touch-space-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825197207" />
+        </section>
+        <section className="configuration">
+          <ApiStateHandler loading={loading} error={error}>
+            <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
+            <Summary />
+            <Customiser />
+          </ApiStateHandler>
+        </section>
       </div>
-      <Price />
-    </main>
+    </div>
   );
 }
 
 
-const App = () => {
+const ConfigurableComponents = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [configurableComponents, setConfigurableComponents] = useState({});
   const [error, setError] = useState(null);
@@ -67,9 +64,18 @@ const App = () => {
           </a>
         </div>
       </header>
-      <MainContent />
+      {children}
     </ConfigurableComponentsContext.Provider>
   );
 }
+
+const App = () => (
+  <ConfigurableComponents>
+    <main>
+      <MainContent />
+      <Price />
+    </main>
+  </ConfigurableComponents>
+);
 
 export default App;
