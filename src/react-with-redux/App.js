@@ -11,14 +11,14 @@ import { inProgress, successful, failed } from './comfigurableComponentsSlice';
 import { getCustomisableComponents } from '../service';
 
 const ConfigurableComponents = () => {
-  const { loading, configurableComponents, error } = useSelector(state => state.configurableComponents);
+  const { loading, data, error } = useSelector(state => state.configurableComponents);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(inProgress());
     getCustomisableComponents()
-      .then((data) => {
-        dispatch(successful(data));
+      .then((d) => {
+        dispatch(successful(d));
       })
       .catch(() => {
         dispatch(failed());
@@ -27,8 +27,8 @@ const ConfigurableComponents = () => {
 
   const setSelectedVariant = (component, variantSerialNo) => {
     dispatch(successful({
-      ...configurableComponents,
-      [component]: configurableComponents[component].map(variant => {
+      ...data,
+      [component]: data[component].map(variant => {
         return {
           ...variant,
           selected: variant.serialNo === variantSerialNo
@@ -38,8 +38,8 @@ const ConfigurableComponents = () => {
   }
 
   const getAddOnPrice = () => {
-    return Object.keys(configurableComponents).reduce((totalAddOnPrice, component) => {
-      return totalAddOnPrice + configurableComponents[component].find(variant => variant.selected).addOnPrice
+    return Object.keys(data).reduce((totalAddOnPrice, component) => {
+      return totalAddOnPrice + data[component].find(variant => variant.selected).addOnPrice
     }, 0);
   }
 
@@ -68,8 +68,8 @@ const ConfigurableComponents = () => {
                     :
                     <>
                       <h1 className="mt-0">Customise your 16‑inch MacBook Pro - Space Grey</h1>
-                      <Summary configurableComponents={configurableComponents} />
-                      <Customiser configurableComponents={configurableComponents} onSelectVariant={setSelectedVariant} />
+                      <Summary configurableComponents={data} />
+                      <Customiser configurableComponents={data} onSelectVariant={setSelectedVariant} />
                     </>
               }
             </section>

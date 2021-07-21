@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const configurableComponentsSlice = createSlice({
   name: 'configurableComponents',
   initialState: {
-    configurableComponents: {},
+    data: {},
     loading: false,
     error: null
   },
@@ -15,7 +15,7 @@ export const configurableComponentsSlice = createSlice({
     successful: (state, action) => ({
       ...state,
       loading: false,
-      configurableComponents: action.payload  
+      data: action.payload  
     }),
     failed: (state) => ({
       ...state,
