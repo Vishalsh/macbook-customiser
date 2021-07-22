@@ -8,7 +8,8 @@ import './index.css';
 // import App from './context/App';
 // import App from './error-boundry/App';
 // import App from './compound-components/App';
-import App from './react-with-redux/App';
+// import App from './react-with-redux/App';
+import App from './redux-thunk/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

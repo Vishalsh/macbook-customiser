@@ -6,27 +6,18 @@ import store from './store';
 import Customiser from './components/Customiser';
 import Summary from './components/Summary';
 import Price from './components/Price';
-import { inProgress, successful, failed } from './comfigurableComponentsSlice';
-
-import { getCustomisableComponents } from '../service';
+import { fetchConfigurableComponents, setConfigurableComponents } from './comfigurableComponentsSlice';
 
 const ConfigurableComponents = () => {
   const { loading, data, error } = useSelector(state => state.configurableComponents);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(inProgress());
-    getCustomisableComponents()
-      .then((d) => {
-        dispatch(successful(d));
-      })
-      .catch(() => {
-        dispatch(failed());
-      });
+    dispatch(fetchConfigurableComponents());
   }, [dispatch]);
 
   const setSelectedVariant = (component, variantSerialNo) => {
-    dispatch(successful({
+    dispatch(setConfigurableComponents({
       ...data,
       [component]: data[component].map(variant => {
         return {
