@@ -1,35 +1,36 @@
 import React from "react";
 
+const apiStatus = {
+  loading: 'loading',
+  complete: 'complete',
+  errored: 'errored'
+}
+
 const withApiCallOnMount = (Component, service) => {
 
   return class extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        loading: false,
+        status: apiStatus.loading,
         data: null,
-        error: null,
       };
     }
     componentDidMount() {
-      this.setState({ loading: true });
       service()
         .then((data) => {
-          this.setState({ data })
+          this.setState({ data, status: apiStatus.complete })
         })
-        .catch((error) => {
-          this.setState({ error })
-        })
-        .finally(() => {
-          this.setState({ loading: false });
+        .catch(() => {
+          this.setState({ status: apiStatus.errored });
         })
     }
 
     render() {
-      const { loading, data, error } = this.state;
+      const { status, data } = this.state;
 
       return (
-        <Component {...this.props} loading={loading} data={data} error={error} />
+        <Component {...this.props} loading={status === apiStatus.loading} data={data} error={status === apiStatus.error} />
       )
     }
   }
