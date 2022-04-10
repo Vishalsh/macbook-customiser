@@ -29,7 +29,7 @@ const useApiCallOnMount = (service) => {
         dispatch({ type: 'success', data });
       })
       .catch((error) => {
-        dispatch({ type: 'success', error });
+        dispatch({ type: 'error', error });
       })
   }, [service]);
 
